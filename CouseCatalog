@@ -1,0 +1,46 @@
+// OOPS Assignment-1
+// Course Catalog 
+class CourseCatalog {
+    private String[] courses;
+    private int count;
+
+    public CourseCatalog(int size) {
+        courses = new String[size];
+        count = 0;
+    }
+        public void addCourse(String title) {
+        if (count < courses.length) {
+            courses[count++] = title;
+        } else {
+            System.out.println("Catalog is full!");
+        }
+    }
+    public boolean searchCourse(String title) {
+        for (int i = 0; i < count; i++) {
+            if (courses[i].equalsIgnoreCase(title)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void showCourses() {
+        for (int i = 0; i < count; i++) {
+            System.out.println(courses[i]);
+        }
+    }
+    public static void main(String[] args) {
+        CourseCatalog catalog = new CourseCatalog(5);
+        catalog.addCourse("Java Programming");
+        catalog.addCourse("Data Structures");
+        catalog.addCourse("Web Development");
+        System.out.println("All Courses:");
+        catalog.showCourses();
+        String search = "Data Structures";
+        System.out.println("\nSearching for: " + search);
+        if (catalog.searchCourse(search)) {
+            System.out.println("Course found!");
+        } else {
+            System.out.println("Course not found!");
+        }
+    }
+}
