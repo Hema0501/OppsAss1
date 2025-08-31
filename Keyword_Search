@@ -1,0 +1,43 @@
+//Assignment 2
+//Keyword Search
+
+
+import java.io.*;
+public class WordCount {
+    public static void main(String[] args) {
+        String fileName = "C:\\Users\\hemap\\eclipse-workspace\\Ass1\\src\\sample.txt"; 
+        String wordToFind = "java";    
+        int count = 0;
+        System.out.println("Hemapriya R");
+        System.out.println("2117240070115");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String lowerLine = line.toLowerCase();
+                String lowerWord = wordToFind.toLowerCase();
+                String[] words = lowerLine.split("\\W+"); 
+
+                for (String word : words) {
+                    if (word.equals(lowerWord)) {
+                        count++;
+                    }
+                }
+            }
+            br.close();
+            System.out.println("The word \"" + wordToFind + "\" occurs " + count + " times.");
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+}
+
+
+
+//OUTPUT:
+
+
+Hemapriya R
+2117240070115
+The word "java" occurs 3 times.
